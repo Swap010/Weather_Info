@@ -1,38 +1,189 @@
-.App {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: auto;
+  padding: auto;
+}
+
+.header {
+  background-color: #89f7fe;
+  padding: 20px 40px;
+  background-image:url(./images/w1.jpg);
+  font-family: "Verdana";
+  color:rgba(176, 224, 230, 0.96);
+  box-shadow: 5px 10px #888888;
+  position:static;
+  top: 0;
+  z-index: 1000;
+  text-decoration: underline;
+}
+
+
+.header-title {
+  font-size: 32px;
+  
+  display: flex;
+  align-items: center;
+  justify-content:flex-start;
+  gap: 12px;
+}
+
+
+
+.header-subtitle {
+  font-size: 14px;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.container {
+  min-height: calc(100vh - 100px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.bg-sunny {
+  background-image: url(./images/w2.jpg);
+}
+
+.bg-rainy {
+  background-image: url(./images/w3.jpg);
+}
+
+.bg-snowy {
+  background-image: url(./images/w4.jpg);  
+}
+
+.bg-stormy {
+  background-image: url(./images/w5.jpg);
+}
+
+
+
+.weather-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  padding: 40px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   text-align: center;
+  transition: all 0.5s ease;
+  animation: fadeIn 0.8s ease;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.location {
+  font-size: 28px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.temp-container {
+  margin: 20px 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.temperature {
+  font-size: 72px;
+  font-weight: bold;
+  color: #444;
+  margin: 0;
+  line-height: 1;
+}
+
+.temp-unit {
+  font-size: 36px;
+}
+
+
+
+.toggle-btn:hover {
+  color: #333;
+}
+
+.condition {
+  font-size: 24px;
+  color: #666;
+  margin-bottom: 25px;
+  text-transform: capitalize;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 25px;
+}
+
+.detail-item {
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 5px;
+}
+
+.detail-label {
+  font-size: 11px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.detail-value {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.refresh-btn {
+  width: 100%;
   color: white;
+  border: none;
+  padding: 16px 40px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
-.App-link {
-  color: #61dafb;
+
+.refresh-btn:hover:not(.loading) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
-@keyframes App-logo-spin {
+
+
+
+
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(-20px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
+
+
+
